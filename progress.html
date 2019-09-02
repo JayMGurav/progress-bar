@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./progress-element.js"></script>
+    <title>Progress</title>
+</head>
+<style>
+    body{
+        margin: 0%;
+        padding: 0%;
+        font-family: sans-serif;
+        width:100%;
+        height: 100vh;      
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;  
+    }
+</style>
+<body>
+    <div>
+        <h1>Progress bar using custom elements</h1>
+    <progress-ele></progress-ele>  
+    </div>
+    
+    <script>
+        (function(){
+            let prog = document.querySelector('progress-ele'), complete = 0;
+
+            var progressInter = setInterval(() => {
+                complete += 1;
+                if(complete <= 100){
+                    prog.setAttribute('complete' ,complete);
+                }
+                else{
+                    clearInterval('progressInter');
+                }
+            },100)
+
+        })()
+    </script>
+    
+</body>
+</html>
